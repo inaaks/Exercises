@@ -19,7 +19,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool CigarParty(int cigars, bool isWeekend)
         {
-            throw new NotImplementedException();
+            if ((cigars >= 40) && (isWeekend))
+            {
+                return true;
+            }
+            else if (cigars >= 40 && cigars <= 60 && isWeekend == false)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -36,7 +44,16 @@ namespace Exercises.Level1
         /// </summary>
         public int DateFashion(int you, int date)
         {
-            throw new NotImplementedException();
+            if ((you >= 8 && date > 2) || (you > 2 && date >= 8))
+            {
+                return 2;
+            }
+            if (you <= 2 || date <= 2)
+            {
+                return 0;
+            }
+            return 1;
+
         }
 
         /// <summary>
@@ -51,7 +68,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool SquirrelPlay(int temp, bool isSummer)
         {
-            throw new NotImplementedException();
+            if (temp >= 60 && temp <= 90)
+            {
+                return true;
+            }
+            if ( (temp >=60 && temp <= 100) && isSummer)
+            {
+                return true;
+            }
+             return false;
         }
 
         /// <summary>
@@ -67,7 +92,7 @@ namespace Exercises.Level1
         /// </summary>
         public int CaughtSpeeding(int speed, bool isBirthday)
         {
-            throw new NotImplementedException();
+            return 0;
         }
 
         /// <summary>
