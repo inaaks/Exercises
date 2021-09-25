@@ -72,11 +72,11 @@ namespace Exercises.Level1
             {
                 return true;
             }
-            if ( (temp >=60 && temp <= 100) && isSummer)
+            if ((temp >= 60 && temp <= 100) && isSummer)
             {
                 return true;
             }
-             return false;
+            return false;
         }
 
         /// <summary>
@@ -92,7 +92,23 @@ namespace Exercises.Level1
         /// </summary>
         public int CaughtSpeeding(int speed, bool isBirthday)
         {
-            return 0;
+            int bonus = 0;
+            if (isBirthday)
+            {
+                bonus = bonus + 5;
+            }
+            if (speed <= (60 + bonus))
+            {
+                return 0;
+            }
+            else if (speed <= (80 + bonus))
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
         }
 
         /// <summary>
@@ -105,7 +121,15 @@ namespace Exercises.Level1
         /// </summary>
         public int SortaSum(int a, int b)
         {
-            throw new NotImplementedException();
+            int sumab = a + b;
+            if (sumab >= 10 && sumab <= 19)
+            {
+                return 20;
+            }
+            else
+            {
+                return sumab;
+            }
         }
 
         /// <summary>
@@ -121,7 +145,31 @@ namespace Exercises.Level1
         /// </summary>
         public string AlarmClock(int day, bool vacation)
         {
-            throw new NotImplementedException();
+            string time1 = "7:00";
+            string time2 = "10:00";
+            string time3 = "off";
+            if (vacation)
+            {
+                if (day >= 1 && day <= 5)
+                {
+                    return time2;
+                }
+                else
+                {
+                    return time3;
+                }
+            }
+            else
+            {
+                if (day >= 1 && day <= 5)
+                {
+                    return time1;
+                }
+                else
+                {
+                    return time2;
+                }
+            }
         }
 
         /// <summary>
@@ -135,7 +183,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool Love6(int a, int b)
         {
-            throw new NotImplementedException();
+            if (a == 6 || b == 6)
+            {
+                return true;
+            }
+            if (Math.Abs(a - b) == 6 || (a + b) == 6)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -149,7 +205,20 @@ namespace Exercises.Level1
         /// </summary>
         public bool In1To10(int n, bool outsideMode)
         {
-            throw new NotImplementedException();
+            if (outsideMode)
+                if (n <= 1 || n >= 10)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            else if (n >= 1 && n <= 10)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -162,9 +231,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool SpecialEleven(int n)
         {
-            throw new NotImplementedException();
-        }
+            if (n >=0 && n % 11 <= 1)
+                return true;
 
+            if (n < 0 && n % 11 == 0)
+            {
+                return true;
+            }
+            return false;
+        }
         /// <summary>
         /// Return true if the given non-negative number is 1 or 2 more than a multiple of 20.
         /// Use the % "mod" operator.
@@ -175,7 +250,12 @@ namespace Exercises.Level1
         /// </summary>
         public bool More20(int n)
         {
-            throw new NotImplementedException();
+            
+            if (n%20 ==1 || n%20==2) // tulkojums latviešu valodā nav korekts
+            {
+                return true;
+            }
+                return false;
         }
 
         /// <summary>
@@ -188,7 +268,18 @@ namespace Exercises.Level1
         /// </summary>
         public bool Old35(int n)
         {
-            throw new NotImplementedException();
+            if (n % 15==0)
+            {
+                return false;
+            }
+            else if (n % 3 == 0 || n % 5 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         /// <summary>
@@ -202,7 +293,11 @@ namespace Exercises.Level1
         /// </summary>
         public bool Less20(int n)
         {
-            throw new NotImplementedException();
+            if (n%20==18 || n%20==19)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -229,7 +324,12 @@ namespace Exercises.Level1
         /// </summary>
         public int TeenSum(int a, int b)
         {
-            throw new NotImplementedException();
+            int sumab = a + b;
+            if ((a >= 13 && a <= 19) || (b >= 13 && b <= 19))
+            {
+                return 19;
+            }
+            return sumab;
         }
 
         /// <summary>
@@ -243,7 +343,23 @@ namespace Exercises.Level1
         /// </summary>
         public bool AnswerCell(bool isMorning, bool isMom, bool isAsleep)
         {
-            throw new NotImplementedException();
+            if (isAsleep)
+            {
+                return false;
+            }
+            else if (isMom)
+            {
+                return true;
+            }
+            else if (isMorning)
+                {
+                    return false;
+                }
+             else
+                { 
+                    return true;
+                }
+            }
         }
 
         /// <summary>
@@ -292,18 +408,27 @@ namespace Exercises.Level1
             throw new NotImplementedException();
         }
 
-        /// <summary>
-        /// Given three ints, a b c, return true if it is possible to add two of the ints to get the third.
-        /// 
-        /// twoAsOne(1, 2, 3) → true
-        /// twoAsOne(3, 1, 2) → true
-        /// twoAsOne(3, 2, 2) → false
-        /// </summary>
-        public bool TwoAsOne(int a, int b, int c)
+    /// <summary>
+    /// Given three ints, a b c, return true if it is possible to add two of the ints to get the third.
+    /// 
+    /// twoAsOne(1, 2, 3) → true
+    /// twoAsOne(3, 1, 2) → true
+    /// twoAsOne(3, 2, 2) → false
+    /// </summary>
+    public bool TwoAsOne(int a, int b, int c)
+    {
+        int sumab = a + b;
+        int sumbc = b + c;
+        int sumac = a + c;
+        if ((sumab == c) || (sumbc == a) || (sumac == b))
         {
-            throw new NotImplementedException();
+            return true;
         }
-
+        else
+        {
+            return false;
+        }
+    }
         /// <summary>
         /// Given three ints, a b c, return true if b is greater than a, and c is greater than b. However,
         /// with the exception that if "bOk" is true, b does not need to be greater than a.

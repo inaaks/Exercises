@@ -198,6 +198,8 @@ namespace Exercises.Level1.Tests
         [InlineData(true, 41)]
         [InlineData(false, 39)]
         [InlineData(true, 42)]
+
+
         public void More20(bool expected, int n)
         {
             Assert.Equal(expected, _logic1.More20(n));
