@@ -1,4 +1,7 @@
-﻿using System;
+﻿
+
+
+using System;
 
 namespace Exercises.Level1
 {
@@ -311,7 +314,11 @@ namespace Exercises.Level1
         /// </summary>
         public bool NearTen(int num)
         {
-            throw new NotImplementedException();
+            if(Math.Abs(num-num/10*10)<=2 || Math.Abs(num - num / 10 * 10)>=8 )
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -359,7 +366,7 @@ namespace Exercises.Level1
                 { 
                     return true;
                 }
-            }
+            
         }
 
         /// <summary>
@@ -375,7 +382,16 @@ namespace Exercises.Level1
         /// </summary>
         public int TeaParty(int tea, int candy)
         {
-            throw new NotImplementedException();
+            int min_party = 5;
+            if (tea < min_party || candy < min_party)
+            {
+                return 0;
+            }
+            if (tea >= candy*2 || candy>=tea*2)
+            {
+                return 2;
+            }
+            return 1;
         }
 
         /// <summary>
@@ -389,7 +405,23 @@ namespace Exercises.Level1
         /// </summary>
         public string FizzString(string str)
         {
-            throw new NotImplementedException();
+            char first = str[0];
+            char last = str[str.Length-1];
+            string fizz = "Fizz";
+            string buzz = "Buzz";
+            if (first=='f' && last=='b')
+            {
+                return fizz + buzz;
+            }
+            if ( last=='b')
+            {
+                return buzz;
+            }
+            if (first== 'f')
+            {
+                return fizz;
+            }
+            return str;
         }
 
         /// <summary>
@@ -405,7 +437,23 @@ namespace Exercises.Level1
         /// </summary>
         public string FizzString2(int n)
         {
-            throw new NotImplementedException();
+           //  if (n==6)
+           //  {
+           //      return "6!";
+           //  }
+            if (n%15==0)
+            {
+                return "FizzBuzz!";
+            }
+            if (n%3==0)
+            {
+                return "Fizz!";
+            }
+            if (n%5==0)
+            {
+                return "Buzz!";
+            }
+             return n.ToString()+'!';
         }
 
     /// <summary>
@@ -439,7 +487,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool InOrder(int a, int b, int c, bool bOk)
         {
-            throw new NotImplementedException();
+            if (b>a && c>b)
+            {
+                return true;
+            }
+            if( c>b && bOk)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -453,7 +509,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool InOrderEqual(int a, int b, int c, bool bOk)
         {
-            throw new NotImplementedException();
+            if (a<b && b<c)
+            {
+                return true;
+            }
+            if (a<=b && b<=c && bOk)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -467,7 +531,11 @@ namespace Exercises.Level1
         /// </summary>
         public bool LastDigit(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            if (a%10==b%10 || b%10==c%10 || a%10==c%10)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -480,7 +548,11 @@ namespace Exercises.Level1
         /// </summary>
         public bool LessBy10(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            if ( Math.Abs(a-b)>=10 || Math.Abs(a-c)>=10 || Math.Abs(b-c)>=10)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -494,7 +566,30 @@ namespace Exercises.Level1
         /// </summary>
         public int WithoutDoubles(int die1, int die2, bool noDoubles)
         {
-            throw new NotImplementedException();
+            if (die1 == die2)
+            {
+                if (noDoubles)
+                { 
+                    if (die1 == 6)
+                    {
+                        return 7;
+                    }
+                    else
+                    {
+                        return die1 * 2 + 1;
+                    }
+                }
+                    
+                else
+                {   
+                    return die1 * 2;
+                }
+            }
+            else
+            {
+                return die1 + die2;
+            }
+            
         }
 
         /// <summary>
@@ -509,7 +604,15 @@ namespace Exercises.Level1
         /// </summary>
         public int MaxMod5(int a, int b)
         {
-            throw new NotImplementedException();
+            if (a==b)
+            {
+                return 0;
+            }
+            if (a%5== b%5)
+            {
+                return Math.Min(a, b);
+            }
+            return Math.Max(a, b);
         }
 
         /// <summary>
@@ -524,7 +627,19 @@ namespace Exercises.Level1
         /// </summary>
         public int RedTicket(int a, int b, int c)
         {
-            throw new NotImplementedException();
+           if(a==2 && b==2 && c==2)
+            {
+                return 10;
+            }
+           if(a==b && b==c)
+            {
+                return 5;
+            }
+           if(a!=b && a!=c)
+            {
+                return 1;
+            }
+            return 0;
         }
 
         /// <summary>
@@ -538,7 +653,15 @@ namespace Exercises.Level1
         /// </summary>
         public int GreenTicket(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            if (a==b && b==c)
+            {
+                return 20;
+            }
+            if (a==b || a==c || b==c)
+            {
+                return 10;
+            }
+            return 0;
         }
 
         /// <summary>
@@ -553,7 +676,18 @@ namespace Exercises.Level1
         /// </summary>
         public int BlueTicket(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            int ab = a + b;
+            int bc = b + c;
+            int ac = a + c;
+            if (ab==10|| bc==10 || ac==10)
+            {
+                return 10;
+            }
+            if (Math.Abs(ab-ac)==10 || Math.Abs(ab-bc)==10 || Math.Abs(ac-bc)==10 )
+            {
+                return 5;
+            }
+            return 0;
         }
 
         /// <summary>
@@ -567,7 +701,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool ShareDigit(int a, int b)
         {
-            throw new NotImplementedException();
+            int first1= a / 10;
+            int last1 = a % 10;
+            int first2 = b / 10;
+            int last2 = b % 10;
+            if (first1==first2 || first1==last2  || first2==last1 || last1==last2)
+            {
+                return true;
+            }
+            return false;
         }
 
         /// <summary>
@@ -582,7 +724,15 @@ namespace Exercises.Level1
         /// </summary>
         public int SumLimit(int a, int b)
         {
-            throw new NotImplementedException();
+            string strab = (a + b).ToString();
+            int len_ab = strab.Length;
+            string stra = a.ToString();
+            int len_a = stra.Length;
+            if (len_a !=len_ab)
+            {
+                return a;
+            }
+            return a + b;
         }
     }
 }
