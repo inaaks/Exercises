@@ -34,12 +34,10 @@ namespace Exercises.Level2
             {
                 stars[n-1] = stars[n-1] + "*";
             }
-            int nspace = 0;
             for (int nstr=n-2; nstr>=0;nstr--)
             {
                 stars[nstr] = stars[nstr + 1].Remove(stars[nstr+1].Length- 2,2);
                 stars[nstr] = " " + stars[nstr];
-                nspace ++;
             }
             return stars;
         }
