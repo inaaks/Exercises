@@ -17,7 +17,15 @@ namespace Exercises.Level1
         /// </summary>
         public int CountEvens(int[] nums)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            foreach (int num in nums)
+            {
+                if (num % 2 == 0)
+                {
+                    sum++;
+                }
+            }
+            return sum;
         }
 
         /// <summary>
@@ -31,7 +39,14 @@ namespace Exercises.Level1
         /// </summary>
         public int BigDiff(int[] nums)
         {
-            throw new NotImplementedException();
+            int maximum = nums[0];
+            int minimum = nums[0];
+           for(int i=1;i<=(nums.Length-1);i++)
+            {
+                maximum = Math.Max(nums[i], maximum);
+                minimum = Math.Min(nums[i], minimum);
+            }
+            return(maximum - minimum);
         }
 
         /// <summary>
@@ -47,7 +62,18 @@ namespace Exercises.Level1
         /// </summary>
         public int CenteredAverage(int[] nums)
         {
-            throw new NotImplementedException();
+            int nums_length = nums.Length;
+            int maximum = nums[0];
+            int minimum = nums[0];
+            int sum = 0;
+            for (int i = 0; i <= nums_length - 1; i++)
+            {
+                maximum = Math.Max(nums[i], maximum);
+                minimum = Math.Min(nums[i], minimum);
+                sum = sum + nums[i];
+            }
+            int av = (sum - maximum - minimum) / (nums_length - 2);
+            return av;
         }
 
         /// <summary>
@@ -61,7 +87,21 @@ namespace Exercises.Level1
         /// </summary>
         public int Sum13(int[] nums)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            if (nums.Length == 0)
+            {
+                return 0;
+            }
+            for(int i=0;i<=nums.Length-1;i++)
+            {
+                if (nums[i] != 13)
+                {
+                    sum = sum + nums[i];
+                    
+                }
+                else { i++; }
+            }
+            return sum;
         }
 
         /// <summary>
@@ -75,20 +115,51 @@ namespace Exercises.Level1
         /// </summary>
         public int Sum67(int[] nums)
         {
-            throw new NotImplementedException();
-        }
+            int sum = 0;
+            if (nums.Length == 0)
+            {
+                return 0;
+            }
+            for (int i = 0; i <= nums.Length - 1; i++)
+            {
+                if (nums[i] != 6)
+                {
+                    sum = sum + nums[i];
+                }
+                else
+                {
+                    while (nums[i] != 7)
+                    {
+                        i++;
+                    }
 
-        /// <summary>
-        /// Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
-        /// 
-        /// has22([1, 2, 2]) → true
-        /// has22([1, 2, 1, 2]) → false
-        /// has22([2, 1, 2]) → false
-        /// </summary>
-        public bool Has22(int[] nums)
-        {
-            throw new NotImplementedException();
-        }
+                }
+            }
+            return sum;
+        } 
+                /// <summary>
+                /// Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
+                /// 
+                /// has22([1, 2, 2]) → true
+                /// has22([1, 2, 1, 2]) → false
+                /// has22([2, 1, 2]) → false
+                /// </summary>
+                public bool Has22(int[] nums)
+                {
+                    if (nums.Length <=1)
+                        {
+                        return false;
+                        }
+                    for (int i = 0; i <= nums.Length - 2; i++)
+                    {
+                        if (nums[i] == 2 && nums[i + 1] == 2)
+                        { 
+                            return true;
+                        }
+                    }
+
+                    return false;
+                }
 
         /// <summary>
         /// Given an array of ints, return true if the array contains no 1's and no 3's.
@@ -99,8 +170,16 @@ namespace Exercises.Level1
         /// </summary>
         public bool Lucky13(int[] nums)
         {
-            throw new NotImplementedException();
+            foreach (int num in nums)
+            {
+                if (num==1 || num == 3)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
+
 
         /// <summary>
         /// Given an array of ints, return true if the sum of all the 2's in the array is exactly 8.
@@ -111,7 +190,13 @@ namespace Exercises.Level1
         /// </summary>
         public bool Sum28(int[] nums)
         {
-            throw new NotImplementedException();
+            int sum = 0;
+            foreach (int num in nums)
+            {
+                if (num == 2) { sum++; }
+            }
+            if (sum == 4) { return true; }
+            return false;
         }
 
         /// <summary>
@@ -123,7 +208,14 @@ namespace Exercises.Level1
         /// </summary>
         public bool More14(int[] nums)
         {
-            throw new NotImplementedException();
+            int icount1 = 0;
+            int icount4 = 0;
+            foreach (int num in nums)
+            {
+                if (num==1) { icount1++; }
+                if (num==4) { icount4++; }
+            }
+            return (icount1 > icount4) ;
         }
 
         /// <summary>
@@ -138,7 +230,12 @@ namespace Exercises.Level1
         /// </summary>
         public int[] FizzArray(int n)
         {
-            throw new NotImplementedException();
+            int[] nums = new int[n];
+            for (int i = 0; i <= n - 1; i++)
+            {
+                nums[i] = i;
+            }
+            return nums;
         }
 
         /// <summary>
