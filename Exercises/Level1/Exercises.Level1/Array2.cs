@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Exercises.Level1
 {
@@ -247,7 +248,14 @@ namespace Exercises.Level1
         /// </summary>
         public bool Only14(int[] nums)
         {
-            throw new NotImplementedException();
+            foreach (int num in nums)
+            {
+                if (num!=1 && num != 4)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         /// <summary>
@@ -261,7 +269,16 @@ namespace Exercises.Level1
         /// </summary>
         public string[] FizzArray2(int nums)
         {
-            throw new NotImplementedException();
+            string[] list1 = new string [nums];
+            if (nums == 0)
+            {
+                return list1;
+            }
+            for (int i=0; i < nums; i++)
+            {
+                list1[i] = i.ToString();
+            }
+            return list1;
         }
 
         /// <summary>
@@ -273,7 +290,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool No14(int[] nums)
         {
-            throw new NotImplementedException();
+            int i1 = 0;
+            int i4 = 0;
+            foreach(int num in nums)
+            {
+                if (num == 1) { i1++; }
+                if (num==4) { i4++; }
+            }
+            if (i1>0 && i4 > 0) { return false; }
+            return true;
         }
 
         /// <summary>
@@ -287,7 +312,17 @@ namespace Exercises.Level1
         /// </summary>
         public bool IsEverywhere(int[] nums, int val)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if (arr_Len <=1) { return true; }
+            
+            for(int i=0;i<arr_Len-1;i++)
+            {
+                if (nums[i] != val && nums[i + 1] != val)
+                {
+                    return false;
+                }
+             }
+            return true;
         }
 
         /// <summary>
@@ -300,7 +335,23 @@ namespace Exercises.Level1
         /// </summary>
         public bool Either24(int[] nums)
         {
-            throw new NotImplementedException();
+            int i2 = 0;
+            int i4 = 0;
+            int arr_Len = nums.Length;
+            if (arr_Len <=1) { return false; }
+            for (int i=0; i < arr_Len-1; i++)
+            {
+                if (nums[i] == 2 && nums[i + 1] == 2) { i2++; }
+                if (nums[i] == 4 && nums[i + 1] == 4) { i4++; }
+            }
+            if ((i2 > 0 && i4 > 0) || (i2 == 0 && i4 == 0))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         /// <summary>
@@ -314,7 +365,12 @@ namespace Exercises.Level1
         /// </summary>
         public int MatchUp(int[] nums1, int[] nums2)
         {
-            throw new NotImplementedException();
+            int icounter = 0;
+            for (int i=0; i<nums1.Length;i++)
+            {
+                if ((nums1[i]!=nums2[i]) && Math.Abs(nums1[i]-nums2[i])<=2) { icounter++; }
+            }
+            return icounter;
         }
 
         /// <summary>
