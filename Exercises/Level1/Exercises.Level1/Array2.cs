@@ -383,7 +383,30 @@ namespace Exercises.Level1
         /// </summary>
         public bool Has77(int[] nums)
         {
-            throw new NotImplementedException();
+            int ar_len = nums.Length;
+            if (ar_len == 1) { return false;}
+            if (ar_len ==2)
+            {
+                if (nums[0] == 7 && nums[1] == 7)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            for (int i = 0; i < ar_len-2; i++)
+            {
+               if ((nums[i] == 7 && nums[i + 1] == 7) || (nums[i]== 7 && nums[i + 2] == 7))
+                {
+                    return true; 
+                }
+            }
+            if (nums[ar_len-2]==7 && nums[ar_len - 1] == 7)
+            {
+                return true;
+            }
+            return false;
+
         }
 
         /// <summary>
@@ -396,7 +419,42 @@ namespace Exercises.Level1
         /// </summary>
         public bool Has12(int[] nums)
         {
-            throw new NotImplementedException();
+            int ar_Len = nums.Length;
+            int indikator1 = 0;
+            int indikator2 = 0;
+            int i = 0;
+            bool is1=false;
+            bool is2=false;
+            while (i< ar_Len-1)
+            {
+                if (nums[i] == 1)
+                {
+                    indikator1 = i;
+                    i = i + ar_Len;
+                    is1 = true;
+                }
+
+                i++;
+            }
+
+            i = 1;
+            while (i < ar_Len)
+            {
+                if (nums[i] == 2)
+                {
+                    indikator2 = i;
+                    i = i + ar_Len;
+                    is2 = true;
+                }
+                i++;
+            }
+
+            if ((indikator1 < indikator2) && is1 && !is2)
+            {
+                return true;
+            }
+            return false;
+
         }
 
         /// <summary>
@@ -623,7 +681,23 @@ namespace Exercises.Level1
         /// </summary>
         public string[] FizzBuzz(int start, int end)
         {
-            throw new NotImplementedException();
+            string[] numsi = new string[end - 1];
+            for (int i=start; i < end ; i++)
+            {
+                if (i % 3 == 0)
+                {
+                    numsi[i] = "Fizz";
+                }
+                if (i % 5 == 0)
+                {
+                    numsi[i] = numsi[i] + "Buzz";
+                }
+                else 
+                { 
+                    numsi[i] = i.ToString(); 
+                }
+            }
+            return numsi;
         }
     }
 }
