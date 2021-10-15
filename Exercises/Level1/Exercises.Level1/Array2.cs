@@ -42,12 +42,12 @@ namespace Exercises.Level1
         {
             int maximum = nums[0];
             int minimum = nums[0];
-           for(int i=1;i<=(nums.Length-1);i++)
+            for (int i = 1; i <= (nums.Length - 1); i++)
             {
                 maximum = Math.Max(nums[i], maximum);
                 minimum = Math.Min(nums[i], minimum);
             }
-            return(maximum - minimum);
+            return (maximum - minimum);
         }
 
         /// <summary>
@@ -93,12 +93,12 @@ namespace Exercises.Level1
             {
                 return 0;
             }
-            for(int i=0;i<=nums.Length-1;i++)
+            for (int i = 0; i <= nums.Length - 1; i++)
             {
                 if (nums[i] != 13)
                 {
                     sum = sum + nums[i];
-                    
+
                 }
                 else { i++; }
             }
@@ -137,30 +137,30 @@ namespace Exercises.Level1
                 }
             }
             return sum;
-        } 
-                /// <summary>
-                /// Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
-                /// 
-                /// has22([1, 2, 2]) → true
-                /// has22([1, 2, 1, 2]) → false
-                /// has22([2, 1, 2]) → false
-                /// </summary>
-                public bool Has22(int[] nums)
+        }
+        /// <summary>
+        /// Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
+        /// 
+        /// has22([1, 2, 2]) → true
+        /// has22([1, 2, 1, 2]) → false
+        /// has22([2, 1, 2]) → false
+        /// </summary>
+        public bool Has22(int[] nums)
+        {
+            if (nums.Length <= 1)
+            {
+                return false;
+            }
+            for (int i = 0; i <= nums.Length - 2; i++)
+            {
+                if (nums[i] == 2 && nums[i + 1] == 2)
                 {
-                    if (nums.Length <=1)
-                        {
-                        return false;
-                        }
-                    for (int i = 0; i <= nums.Length - 2; i++)
-                    {
-                        if (nums[i] == 2 && nums[i + 1] == 2)
-                        { 
-                            return true;
-                        }
-                    }
-
-                    return false;
+                    return true;
                 }
+            }
+
+            return false;
+        }
 
         /// <summary>
         /// Given an array of ints, return true if the array contains no 1's and no 3's.
@@ -173,7 +173,7 @@ namespace Exercises.Level1
         {
             foreach (int num in nums)
             {
-                if (num==1 || num == 3)
+                if (num == 1 || num == 3)
                 {
                     return false;
                 }
@@ -213,10 +213,10 @@ namespace Exercises.Level1
             int icount4 = 0;
             foreach (int num in nums)
             {
-                if (num==1) { icount1++; }
-                if (num==4) { icount4++; }
+                if (num == 1) { icount1++; }
+                if (num == 4) { icount4++; }
             }
-            return (icount1 > icount4) ;
+            return (icount1 > icount4);
         }
 
         /// <summary>
@@ -250,7 +250,7 @@ namespace Exercises.Level1
         {
             foreach (int num in nums)
             {
-                if (num!=1 && num != 4)
+                if (num != 1 && num != 4)
                 {
                     return false;
                 }
@@ -269,12 +269,12 @@ namespace Exercises.Level1
         /// </summary>
         public string[] FizzArray2(int nums)
         {
-            string[] list1 = new string [nums];
+            string[] list1 = new string[nums];
             if (nums == 0)
             {
                 return list1;
             }
-            for (int i=0; i < nums; i++)
+            for (int i = 0; i < nums; i++)
             {
                 list1[i] = i.ToString();
             }
@@ -292,12 +292,12 @@ namespace Exercises.Level1
         {
             int i1 = 0;
             int i4 = 0;
-            foreach(int num in nums)
+            foreach (int num in nums)
             {
                 if (num == 1) { i1++; }
-                if (num==4) { i4++; }
+                if (num == 4) { i4++; }
             }
-            if (i1>0 && i4 > 0) { return false; }
+            if (i1 > 0 && i4 > 0) { return false; }
             return true;
         }
 
@@ -313,15 +313,15 @@ namespace Exercises.Level1
         public bool IsEverywhere(int[] nums, int val)
         {
             int arr_Len = nums.Length;
-            if (arr_Len <=1) { return true; }
-            
-            for(int i=0;i<arr_Len-1;i++)
+            if (arr_Len <= 1) { return true; }
+
+            for (int i = 0; i < arr_Len - 1; i++)
             {
                 if (nums[i] != val && nums[i + 1] != val)
                 {
                     return false;
                 }
-             }
+            }
             return true;
         }
 
@@ -338,8 +338,8 @@ namespace Exercises.Level1
             int i2 = 0;
             int i4 = 0;
             int arr_Len = nums.Length;
-            if (arr_Len <=1) { return false; }
-            for (int i=0; i < arr_Len-1; i++)
+            if (arr_Len <= 1) { return false; }
+            for (int i = 0; i < arr_Len - 1; i++)
             {
                 if (nums[i] == 2 && nums[i + 1] == 2) { i2++; }
                 if (nums[i] == 4 && nums[i + 1] == 4) { i4++; }
@@ -366,9 +366,9 @@ namespace Exercises.Level1
         public int MatchUp(int[] nums1, int[] nums2)
         {
             int icounter = 0;
-            for (int i=0; i<nums1.Length;i++)
+            for (int i = 0; i < nums1.Length; i++)
             {
-                if ((nums1[i]!=nums2[i]) && Math.Abs(nums1[i]-nums2[i])<=2) { icounter++; }
+                if ((nums1[i] != nums2[i]) && Math.Abs(nums1[i] - nums2[i]) <= 2) { icounter++; }
             }
             return icounter;
         }
@@ -384,8 +384,8 @@ namespace Exercises.Level1
         public bool Has77(int[] nums)
         {
             int ar_len = nums.Length;
-            if (ar_len == 1) { return false;}
-            if (ar_len ==2)
+            if (ar_len == 1) { return false; }
+            if (ar_len == 2)
             {
                 if (nums[0] == 7 && nums[1] == 7)
                 {
@@ -394,14 +394,14 @@ namespace Exercises.Level1
                 return false;
             }
 
-            for (int i = 0; i < ar_len-2; i++)
+            for (int i = 0; i < ar_len - 2; i++)
             {
-               if ((nums[i] == 7 && nums[i + 1] == 7) || (nums[i]== 7 && nums[i + 2] == 7))
+                if ((nums[i] == 7 && nums[i + 1] == 7) || (nums[i] == 7 && nums[i + 2] == 7))
                 {
-                    return true; 
+                    return true;
                 }
             }
-            if (nums[ar_len-2]==7 && nums[ar_len - 1] == 7)
+            if (nums[ar_len - 2] == 7 && nums[ar_len - 1] == 7)
             {
                 return true;
             }
@@ -419,37 +419,31 @@ namespace Exercises.Level1
         /// </summary>
         public bool Has12(int[] nums)
         {
-            int ar_Len = nums.Length;
+            int arr_Len = nums.Length;
             int indikator1 = 0;
             int indikator2 = 0;
-            int i = 0;
-            bool is1=false;
-            bool is2=false;
-            while (i< ar_Len-1)
+            bool is1 = false;
+            bool is2 = false;
+            for (int i=0;i<arr_Len-1;i++)
             {
                 if (nums[i] == 1)
                 {
                     indikator1 = i;
-                    i = i + ar_Len;
+                    i = i + arr_Len;
                     is1 = true;
                 }
-
-                i++;
             }
 
-            i = 1;
-            while (i < ar_Len)
+            for(int i=1;i<arr_Len;i++)
             {
                 if (nums[i] == 2)
                 {
                     indikator2 = i;
-                    i = i + ar_Len;
                     is2 = true;
                 }
-                i++;
             }
 
-            if ((indikator1 < indikator2) && is1 && !is2)
+            if ((indikator1 < indikator2) && is1 && is2)
             {
                 return true;
             }
@@ -467,7 +461,15 @@ namespace Exercises.Level1
         /// </summary>
         public bool ModThree(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+
+            if (arr_Len < 3) { return false; }
+            for (int i = 0; i < arr_Len - 2; i++)
+            {
+                if (nums[i] % 2 == 0 && nums[i + 1] % 2 == 0 && nums[i + 2] % 2 == 0) { return true; }
+                if (nums[i] % 2 != 0 && nums[i + 1] % 2 != 0 && nums[i + 2] % 2 != 0) { return true; }
+            }
+            return false;
         }
 
         /// <summary>
@@ -480,7 +482,19 @@ namespace Exercises.Level1
         /// </summary>
         public bool HaveThree(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            int counter = 0;
+            if (arr_Len < 3) { return false; }
+            for (int i = 0; i < arr_Len; i++)
+            {
+                if (nums[i] == 3) { counter++; }
+            }
+            if (counter != 3) { return false; }
+            for (int i = 0; i < arr_Len - 1; i++)
+            {
+                if (nums[i] == 3 && nums[i + 1] == 3) { return false; }
+            }
+            return true;
         }
 
         /// <summary>
@@ -492,7 +506,25 @@ namespace Exercises.Level1
         /// </summary>
         public bool TwoTwo(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if (arr_Len < 2) { return false; }
+            if (nums[0] == 2)
+            {
+                if (nums[1]!=2) { return false; }
+            }
+            if (nums[arr_Len - 1] == 2)
+            {
+                if (nums[arr_Len-2] != 2) { return false; }
+            }
+            for (int i = 1; i < arr_Len-1; i++)
+            {
+                if (nums[i] == 2) 
+                {
+                    if (nums[i+1]!=2 && nums[i-1]!=2) { return false; }
+                }
+            }
+            return true;
+
         }
 
         /// <summary>
@@ -506,7 +538,13 @@ namespace Exercises.Level1
         /// </summary>
         public bool SameEnds(int[] nums, int val)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if (val == 0) { return true; }
+            for(int i=0;i<val;i++)
+            {
+                if (nums[i] != nums[arr_Len - val +i]) { return false; }
+            }
+            return true;
         }
 
         /// <summary>
@@ -519,7 +557,13 @@ namespace Exercises.Level1
         /// </summary>
         public bool TripleUp(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if (arr_Len < 3) { return false; }
+            for (int i = 1; i < arr_Len - 1; i++)
+            {
+                if ((nums[i - 1]+1) == nums[i] && (nums[i]+1)== nums[i + 1]){return true; }
+            }
+            return false;
         }
 
         /// <summary>
@@ -534,7 +578,12 @@ namespace Exercises.Level1
         /// </summary>
         public int[] FizzArray3(int start, int end)
         {
-            throw new NotImplementedException();
+            int[] nums2 = new int[end - start];
+            for (int i = 0; i < end-start; i++)
+            {
+                nums2[i] = i + start;
+            }
+            return nums2;
         }
 
         /// <summary>
@@ -547,7 +596,15 @@ namespace Exercises.Level1
         /// </summary>
         public int[] ShiftLeft(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if(arr_Len < 2){ return nums; }
+            int nums0 = nums[0];
+            for(int i = 0; i < arr_Len-1; i++)
+            {
+                nums[i] = nums[i + 1];
+            }
+            nums[arr_Len - 1] = nums0;
+            return nums;
         }
 
         /// <summary>
@@ -561,7 +618,19 @@ namespace Exercises.Level1
         /// </summary>
         public int[] TenRun(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            int konst;
+            bool isDal = false;
+            if (arr_Len < 2) { return nums; }
+            for (int i = 0; i < arr_Len; i++)
+            { if (nums[i] % 10 == 0) { isDal = true; konst = nums[i]; }
+                else 
+                {
+                    if (isDal) { nums[i] = nums[i - 1]; }
+                }
+                
+            }
+            return nums;
         }
 
         /// <summary>
@@ -589,7 +658,20 @@ namespace Exercises.Level1
         /// </summary>
         public int[] Post4(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            int place4 = 0;
+            for (int i = 0; i < arr_Len; i++)
+            {
+                if (nums[i] == 4) { place4 = i; }
+            }
+            int new_array_Len = arr_Len - place4 - 1;
+            int[] new_array = new int[new_array_Len];
+            if (new_array_Len == 0) { return new_array; }
+            for (int i = 0; i < new_array_Len; i++)
+            {
+                new_array[i] = nums[place4 + 1];
+            }
+            return new_array;
         }
 
         /// <summary>
@@ -633,7 +715,22 @@ namespace Exercises.Level1
         /// </summary>
         public int[] WithoutTen(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_len = nums.Length;
+
+            if (arr_len == 0) { return nums; }
+            for (int i = 0; i < arr_len; i++)
+            {
+                if (nums[i] == 10)
+                {
+                    for (int j=i;j<arr_len;j++)
+                    {
+                        nums[j] = nums[j + 1];
+                    }
+                    nums[arr_len - 1] = 0;
+                    arr_len--;
+                }
+            }
+            return nums;
         }
 
         /// <summary>
@@ -647,7 +744,24 @@ namespace Exercises.Level1
         /// </summary>
         public int[] ZeroMax(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            int arr_Max = 0;
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (nums[i] == 0)
+                {
+                    if (i != (arr_Len - 1))
+                    {
+                        for (int j = i + 1; j < arr_Len - 2; j++)
+                        {
+                            if (arr_Max % 2 != 0) { arr_Max = Math.Max(nums[j], nums[j + 1]); }
+                        }
+                        nums[i] = arr_Max;
+                    }
+                }
+                arr_Max = 0;
+            }
+            return nums;
         }
 
         /// <summary>
@@ -663,12 +777,12 @@ namespace Exercises.Level1
         public int[] EvenOdd(int[] nums)
         {
             int arr_Len = nums.Length;
-            if (arr_Len==0 ) { return nums; }
+            if (arr_Len < 2) { return nums; }
             int[] arr_Even = new int[arr_Len];
             int[] arr_Odd = new int[arr_Len];
             int counter_Even = 0;
             int counter_Odd = 0;
-            for( int i = 0; i < arr_Len; i++)
+            for (int i = 0; i < arr_Len; i++)
             {
                 if (nums[i] % 2 == 0)
                 {
@@ -681,13 +795,13 @@ namespace Exercises.Level1
                     counter_Odd++;
                 }
             }
-            for(int i = 0; i < counter_Even; i++)
+            for (int i = 0; i < counter_Even; i++)
             {
                 nums[i] = arr_Even[i];
             }
-            for(int i = counter_Even; i < arr_Len; i++)
+            for (int i = counter_Even; i < arr_Len; i++)
             {
-                nums[i] = arr_Odd[counter_Even+i];
+                nums[i] = arr_Odd[i];
             }
             return nums;
         }
@@ -709,7 +823,7 @@ namespace Exercises.Level1
         public string[] FizzBuzz(int start, int end)
         {
             string[] numsi = new string[end - 1];
-            for (int i=start; i < end ; i++)
+            for (int i = start; i < end; i++)
             {
                 if (i % 3 == 0)
                 {
@@ -719,9 +833,9 @@ namespace Exercises.Level1
                 {
                     numsi[i] = numsi[i] + "Buzz";
                 }
-                else 
-                { 
-                    numsi[i] = i.ToString(); 
+                else
+                {
+                    numsi[i] = i.ToString();
                 }
             }
             return numsi;
