@@ -657,12 +657,39 @@ namespace Exercises.Level1
         /// array.
         /// 
         /// evenOdd([1, 0, 1, 0, 0, 1, 1]) → [0, 0, 0, 1, 1, 1, 1]
-        /// evenOdd([3, 3, 2]) → [2, 3, 3]
+        /// evenOdd([3, 3, 2]) → [2, 3, 3]couner_Even
         /// evenOdd([2, 2, 2]) → [2, 2, 2]
         /// </summary>
         public int[] EvenOdd(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if (arr_Len==0 ) { return nums; }
+            int[] arr_Even = new int[arr_Len];
+            int[] arr_Odd = new int[arr_Len];
+            int counter_Even = 0;
+            int counter_Odd = 0;
+            for( int i = 0; i < arr_Len; i++)
+            {
+                if (nums[i] % 2 == 0)
+                {
+                    arr_Even[counter_Even] = nums[i];
+                    counter_Even++;
+                }
+                else
+                {
+                    arr_Odd[counter_Odd] = nums[i];
+                    counter_Odd++;
+                }
+            }
+            for(int i = 0; i < counter_Even; i++)
+            {
+                nums[i] = arr_Even[i];
+            }
+            for(int i = counter_Even; i < arr_Len; i++)
+            {
+                nums[i] = arr_Odd[counter_Even+i];
+            }
+            return nums;
         }
 
         /// <summary>
