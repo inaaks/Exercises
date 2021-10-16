@@ -644,7 +644,20 @@ namespace Exercises.Level1
         /// </summary>
         public int[] Pre4(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            int i = 0;
+            while (i<arr_Len && nums[i]!=4)
+            {
+                    i++;
+            }
+            int new_array_Len = i;
+            int[] new_array = new int[new_array_Len];
+            if (new_array_Len == 0) { return new_array; }
+            for (int ii = 0; ii < new_array_Len; ii++)
+            {
+                new_array[ii] = nums[ii];
+            }
+            return new_array;
         }
 
         /// <summary>
@@ -669,7 +682,7 @@ namespace Exercises.Level1
             if (new_array_Len == 0) { return new_array; }
             for (int i = 0; i < new_array_Len; i++)
             {
-                new_array[i] = nums[place4 + 1];
+                new_array[i] = nums[place4 + 1+i];
             }
             return new_array;
         }
@@ -684,8 +697,18 @@ namespace Exercises.Level1
         /// notAlone([3, 4], 3) → [3, 4]
         /// </summary>
         public int[] NotAlone(int[] nums, int val)
-        {
-            throw new NotImplementedException();
+        {  
+                int arr_Len = nums.Length;
+            if (arr_Len<2) { return nums; }
+            for (int i = 1; i< (arr_Len - 1); i++)
+            {
+                if (nums[i] == val)
+                {
+                    nums[i] = Math.Max(nums[i - 1], nums[i]);
+                    nums[i] = Math.Max(nums[i], nums[i + 1]);
+                }
+            }
+            return nums;
         }
 
         /// <summary>
@@ -700,7 +723,19 @@ namespace Exercises.Level1
         /// </summary>
         public int[] ZeroFront(int[] nums)
         {
-            throw new NotImplementedException();
+            int arr_Len = nums.Length;
+            if (arr_Len < 2) { return nums; }
+            int place_Zero = 0;
+            for (int i = 0; i < arr_Len; i++)
+            {
+                if (nums[i] == 0)
+                {
+                    nums[i] = nums[place_Zero];
+                    nums[place_Zero] = 0;
+                    place_Zero++;
+                }
+            }
+            return nums;
         }
 
         /// <summary>
@@ -722,12 +757,13 @@ namespace Exercises.Level1
             {
                 if (nums[i] == 10)
                 {
-                    for (int j=i;j<arr_len;j++)
+                    for (int j=i;j<arr_len-1;j++)
                     {
                         nums[j] = nums[j + 1];
                     }
                     nums[arr_len - 1] = 0;
                     arr_len--;
+                    i--;
                 }
             }
             return nums;
@@ -752,13 +788,17 @@ namespace Exercises.Level1
                 {
                     if (i != (arr_Len - 1))
                     {
-                        for (int j = i + 1; j < arr_Len - 2; j++)
+                        for (int j = i + 1; j < arr_Len-1 ; j++)
                         {
-                            if (arr_Max % 2 != 0) { arr_Max = Math.Max(nums[j], nums[j + 1]); }
+                            if (nums[j]% 2 != 0)
+                            {
+                                arr_Max = Math.Max(nums[j], arr_Max); 
+                            }
                         }
-                        nums[i] = arr_Max;
+                       
                     }
                 }
+                if (arr_Max != 0) { nums[i] = arr_Max; }
                 arr_Max = 0;
             }
             return nums;
