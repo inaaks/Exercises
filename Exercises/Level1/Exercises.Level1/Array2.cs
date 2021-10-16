@@ -702,7 +702,7 @@ namespace Exercises.Level1
             if (arr_Len<2) { return nums; }
             for (int i = 1; i< (arr_Len - 1); i++)
             {
-                if (nums[i] == val)
+                if (nums[i] != nums[i-1] && nums[i] != nums[i+1] && nums[i]==val)
                 {
                     nums[i] = Math.Max(nums[i - 1], nums[i]);
                     nums[i] = Math.Max(nums[i], nums[i + 1]);
@@ -862,23 +862,26 @@ namespace Exercises.Level1
         /// </summary>
         public string[] FizzBuzz(int start, int end)
         {
-            string[] numsi = new string[end - 1];
+            int arr_Len = end - start;
+            string[] numsi = new string[arr_Len];
             for (int i = start; i < end; i++)
             {
+                numsi[i - start] = "";
                 if (i % 3 == 0)
                 {
-                    numsi[i] = "Fizz";
+                    numsi[i - start] = "Fizz";
                 }
                 if (i % 5 == 0)
                 {
-                    numsi[i] = numsi[i] + "Buzz";
+                    numsi[i - start] = numsi[i - start] + "Buzz";
                 }
-                else
+                if (i % 3 != 0 && i % 5 != 0)
                 {
-                    numsi[i] = i.ToString();
+                    numsi[i - start] = i.ToString();
                 }
             }
             return numsi;
+
         }
     }
 }
