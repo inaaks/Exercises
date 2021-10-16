@@ -788,7 +788,7 @@ namespace Exercises.Level1
                 {
                     if (i != (arr_Len - 1))
                     {
-                        for (int j = i + 1; j < arr_Len-1 ; j++)
+                        for (int j = i + 1; j < arr_Len; j++)
                         {
                             if (nums[j]% 2 != 0)
                             {
@@ -841,7 +841,7 @@ namespace Exercises.Level1
             }
             for (int i = counter_Even; i < arr_Len; i++)
             {
-                nums[i] = arr_Odd[i];
+                nums[i] = arr_Odd[i-counter_Even];
             }
             return nums;
         }
